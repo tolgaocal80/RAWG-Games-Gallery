@@ -5,6 +5,31 @@
       <map>
         <entry key="..\:/Users/user/Desktop/AndroidTutorialProjects/RAWGGamesGallery/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.18489583333333334" />
         <entry key="..\:/Users/user/Desktop/AndroidTutorialProjects/RAWGGamesGallery/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/drawable/favorite.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/drawable/favorite_not.xml" value="0.2703125" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.2703125" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/drawable/ic_empty_heart.xml" value="0.2703125" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/drawable/ic_favorite_heart.xml" value="0.2703125" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2703125" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/drawable/ic_home_icon.xml" value="0.2703125" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2703125" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/drawable/indicator_active.xml" value="0.136" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/drawable/indicator_inactive.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/drawable/search.xml" value="0.2703125" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/layout/favorite.xml" value="0.264" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/layout/favorite_row.xml" value="0.536" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/layout/game.xml" value="0.4" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/layout/home.xml" value="0.2" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/layout/home_row.xml" value="0.4359861591695502" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/layout/home_viewpager_item.xml" value="0.2" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/menu-v26/bottom_nav_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/menu/home.xml" value="0.264" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.209375" />
+        <entry key="..\:/Users/user/Desktop/RAWG-Games-Gallery/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1046875" />
       </map>
     </option>
   </component>
