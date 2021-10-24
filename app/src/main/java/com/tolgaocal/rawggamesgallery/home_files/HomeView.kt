@@ -15,11 +15,11 @@ import androidx.core.view.size
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.tolgaocal.rawggamesgallery.Commons.hideView
+import com.tolgaocal.rawggamesgallery.Commons.showView
 import com.tolgaocal.rawggamesgallery.R
 import com.tolgaocal.rawggamesgallery.home_files.home_adapter_files.RecyclerViewAdapter
 import com.tolgaocal.rawggamesgallery.home_files.home_adapter_files.ViewPagerAdapter
-import com.tolgaocal.rawggamesgallery.hideView
-import com.tolgaocal.rawggamesgallery.showView
 import kotlinx.android.synthetic.main.home.*
 
 class HomeView : Fragment() {

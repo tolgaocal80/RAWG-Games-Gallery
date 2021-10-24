@@ -30,20 +30,18 @@ class MainActivity : AppCompatActivity() {
 
         // set up fragments
         val navigationView: BottomNavigationView = findViewById(R.id.nav_view)
-        val hostFragment = supportFragmentManager.
-        findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val hostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navigationController = hostFragment.navController
 
         // bottom app bar configuration
-        val appBarConfiguration =
-            AppBarConfiguration(setOf(R.id.navigation_home, R.id.navigation_favorite))
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.navigation_home, R.id.navigation_favorite))
         setupActionBarWithNavController(navigationController, appBarConfiguration)
         navigationView.setupWithNavController(navigationController)
 
         // get sharedPref to see if user downloaded game list already
         val sharedPreferences = getSharedPreferences(sharedPref, 0)
 
-        // Call loadDatabase method to show game_files list
+        // Call downloadDatabase method to show game list
         downloadDatabase()
 
         // After first launch progress will be hidden, game list will be shown
@@ -66,7 +64,6 @@ class MainActivity : AppCompatActivity() {
         val databaseDao = GameDatabase.getDatabase(this).dbDao()
         val client = OkHttpClient()
         var request = Request.Builder().url( "https://api.rawg.io/api/games?key=${Constants.API_KEY}").build()
-
         Thread{
             try {
                 // fetch game_files list as JSON list
@@ -77,14 +74,12 @@ class MainActivity : AppCompatActivity() {
 
                     // for every item in game_files list get attributes, add to database
                     for (i in 0 until resultsArray.length()) {
-
                         val jsonGameObject = JSONObject(resultsArray[i].toString())
                         val id = jsonGameObject.getString("id")
 
                         if (databaseDao.getGameItemById(id) != null) {
                             continue
                         }
-
                         // fetch game_files details
                         request = Request.Builder()
                             .url("https://api.rawg.io/api/games/${id}?key=${Constants.API_KEY}")
@@ -92,8 +87,7 @@ class MainActivity : AppCompatActivity() {
                         client.newCall(request).execute().use { responseGameDetails ->
                             if (!responseGameList.isSuccessful) throw IOException("Unexpected code $responseGameList")
 
-                            val jsonGameDetailsObject =
-                                JSONObject(responseGameDetails.body!!.string())
+                            val jsonGameDetailsObject = JSONObject(responseGameDetails.body!!.string())
 
                             val name = jsonGameObject.getString("name")
                             val rating = jsonGameObject.getDouble("rating").toString()
@@ -104,17 +98,13 @@ class MainActivity : AppCompatActivity() {
                             val description = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                                 Html.fromHtml(
                                     jsonGameDetailsObject.getString("description"),
-                                    Html.FROM_HTML_MODE_LEGACY
-                                ).toString()
+                                    Html.FROM_HTML_MODE_LEGACY).toString()
                             } else {
-                                Html.fromHtml(jsonGameDetailsObject.getString("description"))
-                                    .toString()
+                                Html.fromHtml(jsonGameDetailsObject.getString("description")).toString()
                             }
 
                             // Add all items to database
-                            databaseDao.addGameItem(
-                                GameItem(id, name, image, description, rating, metacritic, released,false)
-                            )
+                            databaseDao.addGameItem(GameItem(id, name, image, description, rating, metacritic, released,false))
                         }
                     }
 
@@ -136,7 +126,6 @@ class MainActivity : AppCompatActivity() {
                 exception.localizedMessage
             }
         }.start()
-
     }
 
 }
