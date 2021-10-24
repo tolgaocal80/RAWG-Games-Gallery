@@ -98,7 +98,7 @@ class HomeView : Fragment() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
-            // if user searches in games, after 3 input viewPager will be invisible
+            // if user searches in games, after 3 character input viewPager will be invisible
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (newText?.length!! >= 3) {
                     viewPager.visibility = View.GONE
