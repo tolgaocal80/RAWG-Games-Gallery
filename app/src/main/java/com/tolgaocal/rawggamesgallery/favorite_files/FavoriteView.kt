@@ -1,4 +1,4 @@
-package com.tolgaocal.rawggamesgallery.favorite
+package com.tolgaocal.rawggamesgallery.favorite_files
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,9 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tolgaocal.rawggamesgallery.R
-import com.tolgaocal.rawggamesgallery.favorite.favorite_adapter_files.FavoriteAdapter
-import com.tolgaocal.rawggamesgallery.hideAnimation
-import com.tolgaocal.rawggamesgallery.showAnimation
+import com.tolgaocal.rawggamesgallery.favorite_files.favorite_adapter_files.FavoriteAdapter
+import com.tolgaocal.rawggamesgallery.hideView
+import com.tolgaocal.rawggamesgallery.showView
 import kotlinx.android.synthetic.main.favorite.*
 
 class FavoriteView : Fragment() {
@@ -30,14 +30,15 @@ class FavoriteView : Fragment() {
     @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        // if favorites are empty show no favorites text
         viewModel.gameItemList.observe(viewLifecycleOwner, {
             if (viewModel.gameItemList.value?.size == 0) {
                 gameNotFoundText.visibility = View.VISIBLE
             } else {
                 gameNotFoundText.visibility = View.GONE
             }
-            gameListLayout.showAnimation()
-            progressBarLayout.hideAnimation()
+            gameListLayout.showView()
+            progressBarLayout.hideView()
             adapter.notifyDataSetChanged()
         })
 
@@ -47,9 +48,10 @@ class FavoriteView : Fragment() {
         }
     }
 
+
     override fun onResume() {
         super.onResume()
-        viewModel.loadData()
+        viewModel.getFavoriteGames()
     }
 
 }

@@ -8,13 +8,13 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.tolgaocal.rawggamesgallery.home.HomeView"
+        android:name="com.tolgaocal.rawggamesgallery.home_files.HomeView"
         android:label="Anasayfa"
         tools:layout="@layout/home" />
 
     <fragment
         android:id="@+id/navigation_favorite"
-        android:name="com.tolgaocal.rawggamesgallery.favorite.FavoriteView"
+        android:name="com.tolgaocal.rawggamesgallery.favorite_files.FavoriteView"
         android:label="Favoriler"
         tools:layout="@layout/favorite" />
 

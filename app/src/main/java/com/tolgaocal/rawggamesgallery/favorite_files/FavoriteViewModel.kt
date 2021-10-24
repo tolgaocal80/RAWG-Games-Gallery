@@ -1,4 +1,4 @@
-package com.tolgaocal.rawggamesgallery.favorite
+package com.tolgaocal.rawggamesgallery.favorite_files
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -14,7 +14,8 @@ class FavoriteViewModel(private val model: FavoriteModel) : ViewModel() {
     val gameItemList: LiveData<List<GameItem>>
         get() = mutableGameItemList
 
-    fun loadData() = viewModelScope.launch {
+    // get favorite_files items
+    fun getFavoriteGames() = viewModelScope.launch {
         mutableGameItemList.value = model.getFavoriteGameItemList()
     }
 }

@@ -4,7 +4,7 @@ import android.view.View
 
 private const val DURATION = 200L
 
-fun View.showAnimation() {
+fun View.showView() {
     if (this.visibility == View.VISIBLE) {
         return
     }
@@ -13,7 +13,7 @@ fun View.showAnimation() {
     this.animate().alpha(1f).setDuration(DURATION).start()
 }
 
-fun View.hideAnimation() {
+fun View.hideView() {
     if (this.visibility == View.GONE) {
         return
     }

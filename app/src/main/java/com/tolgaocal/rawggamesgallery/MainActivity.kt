@@ -26,54 +26,56 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // set up fragments
         val navigationView: BottomNavigationView = findViewById(R.id.nav_view)
         val hostFragment = supportFragmentManager.
         findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navigationController = hostFragment.navController
 
+        // bottom app bar configuration
         val appBarConfiguration =
             AppBarConfiguration(setOf(R.id.navigation_home, R.id.navigation_favorite))
         setupActionBarWithNavController(navigationController, appBarConfiguration)
         navigationView.setupWithNavController(navigationController)
 
+        // get sharedPref to see if user downloaded game list already
         val sharedPreferences = getSharedPreferences(sharedPref, 0)
 
-        // Call loadDatabase method to show game list
-        loadDatabase()
+        // Call loadDatabase method to show game_files list
+        downloadDatabase()
 
-        // After first launch progress animation will be hidden
+        // After first launch progress will be hidden, game list will be shown
         if (!sharedPreferences.getBoolean(isFirstLaunch, true)) {
-            progressBarLayout.hideAnimation()
-            nav_host_fragment.showAnimation()
+            progressBarLayout.hideView()
+            nav_host_fragment.showView()
         }
 
     }
 
 
 
-    // When user switches between apps reload list
+    // When user switches between apps reload game list
     override fun onResume() {
         super.onResume()
-        loadDatabase()
+        downloadDatabase()
     }
 
 
-    private fun loadDatabase() {
-
+    // download game database from RAWG
+    private fun downloadDatabase() {
         val databaseDao = GameDatabase.getDatabase(this).dbDao()
         val client = OkHttpClient()
         var request = Request.Builder().url( "https://api.rawg.io/api/games?key=${Constants.API_KEY}").build()
 
         Thread{
             try {
-                // fetch game list as JSON list
+                // fetch game_files list as JSON list
                 client.newCall(request).execute().use { responseGameList ->
                     if (!responseGameList.isSuccessful) throw IOException("Unexpected code $responseGameList")
-
                     val jsonGameListObject = JSONObject(responseGameList.body!!.string())
                     val resultsArray = jsonGameListObject.getJSONArray("results")
 
-                    // for every item in game list get attributes, add to database
+                    // for every item in game_files list get attributes, add to database
                     for (i in 0 until resultsArray.length()) {
 
                         val jsonGameObject = JSONObject(resultsArray[i].toString())
@@ -83,7 +85,7 @@ class MainActivity : AppCompatActivity() {
                             continue
                         }
 
-                        // fetch game details
+                        // fetch game_files details
                         request = Request.Builder()
                             .url("https://api.rawg.io/api/games/${id}?key=${Constants.API_KEY}")
                             .build()
@@ -111,32 +113,20 @@ class MainActivity : AppCompatActivity() {
 
                             // Add all items to database
                             databaseDao.addGameItem(
-                                GameItem(
-                                    id,
-                                    name,
-                                    image,
-                                    description,
-                                    rating,
-                                    metacritic,
-                                    released,
-                                    false,
-                                )
+                                GameItem(id, name, image, description, rating, metacritic, released,false)
                             )
-
-
                         }
-
                     }
 
                     val sharedPreferences = getSharedPreferences(sharedPref, 0)
-
                     if (sharedPreferences.getBoolean(isFirstLaunch, true)) {
-                        // once data fetched show game list.
+                        // once data fetched show game_files list.
                         runOnUiThread {
                             with(sharedPreferences.edit()) {
                                 putBoolean(isFirstLaunch, false)
                                 apply()
                             }
+                            // redrawn screen
                             recreate()
                         }
                     }

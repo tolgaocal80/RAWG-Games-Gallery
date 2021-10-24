@@ -1,4 +1,4 @@
-package com.tolgaocal.rawggamesgallery.home.adapter
+package com.tolgaocal.rawggamesgallery.home_files.home_adapter_files
 
 import android.content.Context
 import android.content.Intent
@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.tolgaocal.rawggamesgallery.Constants.fetchImage
 import com.tolgaocal.rawggamesgallery.R
 import com.tolgaocal.rawggamesgallery.database_files.GameItem
-import com.tolgaocal.rawggamesgallery.ui.game.GameView
-import com.tolgaocal.rawggamesgallery.home.HomeViewModel
+import com.tolgaocal.rawggamesgallery.game_files.GameView
+import com.tolgaocal.rawggamesgallery.home_files.HomeViewModel
 import com.tolgaocal.rawggamesgallery.SingletonGame
 
 class RecyclerViewAdapter(private val viewModel: HomeViewModel, private val activity: AppCompatActivity) : RecyclerView.Adapter<RecyclerViewViewHolder>() {
@@ -25,12 +25,14 @@ class RecyclerViewAdapter(private val viewModel: HomeViewModel, private val acti
     private val gameItemList: List<GameItem>
         get() {
             viewModel.gameItemList.value?.apply {
-                // if lists are not empty, and filteredGameItemList's size is not equal to gameItemList's size, then it means the search is in progress.
+                // if gameItemList is not empty(database is loaded) and filteredGameList is also not empty
+                // so user searching in list return search result to view
                 if (this.isNotEmpty() && this.size != filteredGameItemList.size) {
                     return filteredGameItemList
-                } // or maybe both of the lists are equal in size, then we can do our normal process. Which means, take the next sublist from index 3.
-                else if (this.size > 3) {
-                    return this.subList(3, this.size)
+                }
+                // else show normal game list
+                else if (this.size > 4) {
+                    return this.subList(4, this.size)
                 }
             }
             return emptyList()
@@ -45,12 +47,12 @@ class RecyclerViewAdapter(private val viewModel: HomeViewModel, private val acti
     override fun onBindViewHolder(holder: RecyclerViewViewHolder, position: Int) {
         val gameItem = gameItemList[position]
 
+        // on tap to the game list item take user to game details
         holder.row.setOnClickListener {
             SingletonGame.currentGameItem = gameItem
             val intent = Intent(activity, GameView::class.java)
             activity.startActivity(intent)
         }
-
         holder.gameImage.apply { fetchImage(gameItem.image, this, activity) }
         holder.name.text = gameItem.name
         holder.rating.text = gameItem.rating
@@ -60,10 +62,9 @@ class RecyclerViewAdapter(private val viewModel: HomeViewModel, private val acti
     override fun getItemCount() = gameItemList.size
 }
 
-
+// view holder for home list
 class RecyclerViewViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-    val row: LinearLayout = view.findViewById(R.id.linearLayout_row)
+    val row: LinearLayout = view.findViewById(R.id.gameRecyclerRow)
     val gameImage: ImageView = view.findViewById(R.id.gameImage)
     val name: TextView = view.findViewById(R.id.nameText)
     val rating: TextView = view.findViewById(R.id.ratingText)

@@ -1,4 +1,4 @@
-package com.tolgaocal.rawggamesgallery.home
+package com.tolgaocal.rawggamesgallery.home_files
 
 import androidx.appcompat.app.AppCompatActivity
 import com.tolgaocal.rawggamesgallery.database_files.GameDatabase
@@ -15,7 +15,7 @@ class HomeModel(
         GameDatabase.getDatabase(activity).dbDao().getGameItemList()
     }
 
-    suspend fun getGameItemListByNameSearch(searchString: String) = withContext(coroutineContext) {
+    suspend fun getGameItemListBySearch(searchString: String) = withContext(coroutineContext) {
         GameDatabase.getDatabase(activity).dbDao().getGameItemListByNameSearch(searchString)
     }
 

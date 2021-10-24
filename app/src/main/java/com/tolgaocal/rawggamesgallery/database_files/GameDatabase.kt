@@ -11,7 +11,7 @@ abstract class GameDatabase : RoomDatabase() {
 
     abstract fun dbDao(): DatabaseDao
 
-    // game database as companion object (singleton pattern)
+    // game_files database as companion object (singleton pattern)
     companion object {
         private var gameDB: GameDatabase? = null
         @Synchronized
@@ -20,7 +20,7 @@ abstract class GameDatabase : RoomDatabase() {
                 gameDB = Room.databaseBuilder(
                     context.applicationContext,
                     GameDatabase::class.java,
-                    "game-db"
+                    "game_files-db"
                 ).build()
             }
             return gameDB!!

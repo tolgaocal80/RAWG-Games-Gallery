@@ -1,4 +1,4 @@
-package com.tolgaocal.rawggamesgallery.home
+package com.tolgaocal.rawggamesgallery.home_files
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -16,10 +16,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.tolgaocal.rawggamesgallery.R
-import com.tolgaocal.rawggamesgallery.home.adapter.RecyclerViewAdapter
-import com.tolgaocal.rawggamesgallery.home.adapter.ViewPagerAdapter
-import com.tolgaocal.rawggamesgallery.hideAnimation
-import com.tolgaocal.rawggamesgallery.showAnimation
+import com.tolgaocal.rawggamesgallery.home_files.home_adapter_files.RecyclerViewAdapter
+import com.tolgaocal.rawggamesgallery.home_files.home_adapter_files.ViewPagerAdapter
+import com.tolgaocal.rawggamesgallery.hideView
+import com.tolgaocal.rawggamesgallery.showView
 import kotlinx.android.synthetic.main.home.*
 
 class HomeView : Fragment() {
@@ -67,15 +67,15 @@ class HomeView : Fragment() {
         }
 
         viewModel.gameItemList.observe(viewLifecycleOwner, {
-            // If search return nothing show game not found
+            // If search return nothing show game_files not found
             if (viewModel.searchedGameItemList.value?.size == 0) {
                 gameNotFoundText.visibility = View.VISIBLE
             } else {
                 gameNotFoundText.visibility = View.GONE
             }
             if (viewPager.isVisible) {
-                gameListLayout.showAnimation()
-                progressBarLayout.hideAnimation()
+                gameListLayout.showView()
+                progressBarLayout.hideView()
                 setIndicator()
                 setCurrentIndicator(0)
                 viewPager.setCurrentItem(0, true)
@@ -103,7 +103,7 @@ class HomeView : Fragment() {
                 if (newText?.length!! >= 3) {
                     viewPager.visibility = View.GONE
                     indicatorLayout.visibility = View.GONE
-                    viewModel.searchByName(newText)
+                    viewModel.searchGame(newText)
                 } else {
                     viewPager.visibility = View.VISIBLE
                     indicatorLayout.visibility = View.VISIBLE

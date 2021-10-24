@@ -1,4 +1,4 @@
-package com.tolgaocal.rawggamesgallery.home.adapter
+package com.tolgaocal.rawggamesgallery.home_files.home_adapter_files
 
 import android.content.Context
 import android.content.Intent
@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.tolgaocal.rawggamesgallery.Constants.fetchImage
 import com.tolgaocal.rawggamesgallery.R
 import com.tolgaocal.rawggamesgallery.database_files.GameItem
-import com.tolgaocal.rawggamesgallery.ui.game.GameView
-import com.tolgaocal.rawggamesgallery.home.HomeViewModel
+import com.tolgaocal.rawggamesgallery.game_files.GameView
+import com.tolgaocal.rawggamesgallery.home_files.HomeViewModel
 import com.tolgaocal.rawggamesgallery.SingletonGame
 
 class ViewPagerAdapter(
@@ -41,7 +41,7 @@ class ViewPagerAdapter(
         holder.imageView.apply {
             fetchImage(gameItem.image, this, activity)
 
-            // take to details on tap imageView
+            // take to details also on tap the imageView
             this.setOnClickListener {
                 SingletonGame.currentGameItem = gameItem
                 val intent = Intent(activity, GameView::class.java)

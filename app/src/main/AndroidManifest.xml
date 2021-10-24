@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.game.GameView" />
+        <activity android:name=".game_files.GameView" />
 
     </application>
 

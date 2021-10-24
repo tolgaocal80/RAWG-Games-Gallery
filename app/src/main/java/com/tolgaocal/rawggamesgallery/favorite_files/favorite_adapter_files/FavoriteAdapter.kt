@@ -1,4 +1,4 @@
-package com.tolgaocal.rawggamesgallery.favorite.favorite_adapter_files
+package com.tolgaocal.rawggamesgallery.favorite_files.favorite_adapter_files
 
 import android.content.Context
 import android.content.Intent
@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.tolgaocal.rawggamesgallery.Constants.fetchImage
 import com.tolgaocal.rawggamesgallery.R
 import com.tolgaocal.rawggamesgallery.database_files.GameItem
-import com.tolgaocal.rawggamesgallery.favorite.FavoriteViewModel
-import com.tolgaocal.rawggamesgallery.ui.game.GameView
+import com.tolgaocal.rawggamesgallery.favorite_files.FavoriteViewModel
+import com.tolgaocal.rawggamesgallery.game_files.GameView
 import com.tolgaocal.rawggamesgallery.SingletonGame
 
 class FavoriteAdapter(private val viewModel: FavoriteViewModel, private val activity: AppCompatActivity) : RecyclerView.Adapter<FavoriteViewHolder>() {
@@ -47,7 +47,7 @@ class FavoriteAdapter(private val viewModel: FavoriteViewModel, private val acti
 }
 
 class FavoriteViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    val row: LinearLayout = view.findViewById(R.id.linearLayout_row)
+    val row: LinearLayout = view.findViewById(R.id.gameRecyclerRow)
     val gameImage: ImageView = view.findViewById(R.id.gameImage)
     val name: TextView = view.findViewById(R.id.nameText)
     val rating: TextView = view.findViewById(R.id.ratingText)

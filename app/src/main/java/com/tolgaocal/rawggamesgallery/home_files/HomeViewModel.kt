@@ -1,4 +1,4 @@
-package com.tolgaocal.rawggamesgallery.home
+package com.tolgaocal.rawggamesgallery.home_files
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -25,8 +25,8 @@ class HomeViewModel(private val homeModel: HomeModel) : ViewModel() {
         mutableGameItemList.value = homeModel.getGameItemList()
     }
 
-    fun searchByName(searchString: String) = viewModelScope.launch {
-        mutableSearchedGameItemList.value = homeModel.getGameItemListByNameSearch(searchString)
+    fun searchGame(searchString: String) = viewModelScope.launch {
+        mutableSearchedGameItemList.value = homeModel.getGameItemListBySearch(searchString)
         mutableGameItemList.value = homeModel.getGameItemList()
     }
 

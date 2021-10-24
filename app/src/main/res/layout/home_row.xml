@@ -4,7 +4,7 @@
 
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/linearLayout_row"
+        android:id="@+id/gameRecyclerRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
