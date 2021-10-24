@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.tolgaocal.rawggamesgallery.Commons.hideView
+import com.tolgaocal.rawggamesgallery.Commons.showView
 import com.tolgaocal.rawggamesgallery.R
 import com.tolgaocal.rawggamesgallery.favorite_files.favorite_adapter_files.FavoriteAdapter
-import com.tolgaocal.rawggamesgallery.hideView
-import com.tolgaocal.rawggamesgallery.showView
 import kotlinx.android.synthetic.main.favorite.*
 
 class FavoriteView : Fragment() {

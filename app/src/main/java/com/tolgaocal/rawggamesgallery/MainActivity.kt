@@ -9,6 +9,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.tolgaocal.rawggamesgallery.Commons.hideView
+import com.tolgaocal.rawggamesgallery.Commons.showView
 import com.tolgaocal.rawggamesgallery.database_files.GameDatabase
 import com.tolgaocal.rawggamesgallery.database_files.GameItem
 import kotlinx.android.synthetic.main.activity_main.*
@@ -51,8 +53,6 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
-
 
     // When user switches between apps reload game list
     override fun onResume() {
@@ -138,6 +138,5 @@ class MainActivity : AppCompatActivity() {
         }.start()
 
     }
-
 
 }

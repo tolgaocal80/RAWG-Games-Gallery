@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.tolgaocal.rawggamesgallery.Constants.fetchImage
+import com.tolgaocal.rawggamesgallery.Commons.fetchImage
 import com.tolgaocal.rawggamesgallery.R
 import com.tolgaocal.rawggamesgallery.database_files.GameItem
 import com.tolgaocal.rawggamesgallery.game_files.GameView

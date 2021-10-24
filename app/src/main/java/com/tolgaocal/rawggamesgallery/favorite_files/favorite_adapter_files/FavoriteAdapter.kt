@@ -10,7 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.tolgaocal.rawggamesgallery.Constants.fetchImage
+import com.tolgaocal.rawggamesgallery.Commons.fetchImage
 import com.tolgaocal.rawggamesgallery.R
 import com.tolgaocal.rawggamesgallery.database_files.GameItem
 import com.tolgaocal.rawggamesgallery.favorite_files.FavoriteViewModel

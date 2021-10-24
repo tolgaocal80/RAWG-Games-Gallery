@@ -10,7 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.tolgaocal.rawggamesgallery.Constants.fetchImage
+import com.tolgaocal.rawggamesgallery.Commons.fetchImage
 import com.tolgaocal.rawggamesgallery.R
 import com.tolgaocal.rawggamesgallery.database_files.GameItem
 import com.tolgaocal.rawggamesgallery.game_files.GameView
@@ -30,9 +30,9 @@ class RecyclerViewAdapter(private val viewModel: HomeViewModel, private val acti
                 if (this.isNotEmpty() && this.size != filteredGameItemList.size) {
                     return filteredGameItemList
                 }
-                // else show normal game list
-                else if (this.size > 4) {
-                    return this.subList(4, this.size)
+                // else show first 3 game list item
+                else if (this.size > 3) {
+                    return this.subList(3, this.size)
                 }
             }
             return emptyList()

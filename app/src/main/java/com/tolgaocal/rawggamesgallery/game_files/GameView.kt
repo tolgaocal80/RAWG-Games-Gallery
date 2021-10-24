@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
-import com.tolgaocal.rawggamesgallery.Constants.fetchImage
+import com.tolgaocal.rawggamesgallery.Commons.fetchImage
 import com.tolgaocal.rawggamesgallery.R
 import com.tolgaocal.rawggamesgallery.SingletonGame
 import kotlinx.android.synthetic.main.game.*
