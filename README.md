@@ -21,6 +21,6 @@
 ✔ RoomDatabase (Database işlemleri için)\
 ✔ LiveData/ ViewModel Coroutines\
 ✔ Okhttp 4.9.0 (API kullanımı için)\
-✔ OOP, SOLID (olabildiğince)\
+✔ OOP, SOLID (olabildiğince)
 
 
