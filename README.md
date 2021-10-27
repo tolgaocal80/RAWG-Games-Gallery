@@ -23,4 +23,8 @@
 ✔ Okhttp 4.9.0 (API kullanımı için)\
 ✔ OOP, SOLID (olabildiğince)
 
+Uygulama ikonu:\
+<a href="https://imgbox.com/k6gInNyS" target="_blank"><img src="https://thumbs2.imgbox.com/b2/e5/k6gInNyS_t.png" alt="image host"/></a>
 
+Uygulama ekran görüntüleri:\
+<a href="https://imgbox.com/NZWsjdHv" target="_blank"><img src="https://images2.imgbox.com/dd/eb/NZWsjdHv_o.gif" alt="image host"/></a> <a href="https://imgbox.com/aR1KNM0u" target="_blank"><img src="https://images2.imgbox.com/6b/40/aR1KNM0u_o.gif" alt="image host"/></a> <a href="https://imgbox.com/YVmVwOEv" target="_blank"><img src="https://images2.imgbox.com/42/f4/YVmVwOEv_o.gif" alt="image host"/></a>
